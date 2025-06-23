@@ -59,7 +59,7 @@ export const FileExplorer = () => {
   };
 
   return (
-    <div className="flex h-screen bg-black text-white">
+    <div className="flex h-[calc(100vh-8rem)] bg-black text-white border border-gray-800">
       <FileExplorerSidebar 
         onNavigate={setCurrentFolderId}
         currentFolderId={currentFolderId}
