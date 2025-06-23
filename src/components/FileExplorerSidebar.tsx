@@ -32,7 +32,7 @@ export const FileExplorerSidebar = ({ onNavigate, currentFolderId }: FileExplore
     <div className="w-64 bg-black border-r border-gray-800 flex flex-col">
       {/* New Button */}
       <div className="p-4">
-        <Button className="w-full bg-white text-black hover:bg-gray-200 flex items-center gap-2">
+        <Button className="w-full bg-cyan-600 hover:bg-cyan-700 text-white flex items-center gap-2">
           <Plus size={16} />
           New
         </Button>
@@ -44,8 +44,8 @@ export const FileExplorerSidebar = ({ onNavigate, currentFolderId }: FileExplore
           <button
             key={item.id}
             onClick={() => onNavigate(item.id)}
-            className={`w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-gray-900 transition-colors ${
-              item.active ? "bg-gray-900 text-cyan-400 border-l-2 border-cyan-400" : "text-gray-300"
+            className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left hover:bg-gray-900 transition-colors ${
+              item.active ? "bg-cyan-900/50 text-cyan-400" : "text-gray-300"
             }`}
           >
             <item.icon size={18} />
@@ -65,7 +65,7 @@ export const FileExplorerSidebar = ({ onNavigate, currentFolderId }: FileExplore
           
           {isMyDriveExpanded && (
             <div className="ml-4 space-y-1">
-              <button className="w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-gray-900 transition-colors text-gray-300">
+              <button className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left hover:bg-gray-900 transition-colors text-gray-300">
                 <Cloud size={16} />
                 <span className="text-sm">Recent</span>
               </button>
@@ -77,15 +77,15 @@ export const FileExplorerSidebar = ({ onNavigate, currentFolderId }: FileExplore
       {/* Storage Info */}
       <div className="p-4 border-t border-gray-800">
         <div className="text-xs text-gray-400 mb-2">Storage</div>
-        <div className="w-full bg-gray-800 h-2 mb-2">
-          <div className="bg-cyan-600 h-2" style={{ width: "45%" }}></div>
+        <div className="w-full bg-gray-800 rounded-full h-2 mb-2">
+          <div className="bg-cyan-600 h-2 rounded-full" style={{ width: "45%" }}></div>
         </div>
         <div className="text-xs text-gray-400">4.5 GB of 15 GB used</div>
       </div>
 
       {/* Settings */}
       <div className="p-2 border-t border-gray-800">
-        <button className="w-full flex items-center gap-3 px-3 py-2 text-left hover:bg-gray-900 transition-colors text-gray-300">
+        <button className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left hover:bg-gray-900 transition-colors text-gray-300">
           <Settings size={16} />
           <span className="text-sm">Settings</span>
         </button>
