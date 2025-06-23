@@ -6,11 +6,13 @@ export interface Project {
   name: string;
   description?: string;
   created: string;
+  isDefault?: boolean;
 }
 
 interface ProjectContextType {
   currentProject: Project | null;
   projects: Project[];
+  defaultProject: Project;
   setCurrentProject: (project: Project) => void;
   addProject: (project: Omit<Project, 'id' | 'created'>) => void;
 }
@@ -25,6 +27,15 @@ export const useProject = () => {
   return context;
 };
 
+// Default project
+const defaultProject: Project = {
+  id: 'default',
+  name: 'My Drive',
+  description: 'Your personal cloud storage',
+  created: '2024-01-01',
+  isDefault: true,
+};
+
 // Mock projects data
 const mockProjects: Project[] = [
   { id: '1', name: 'Personal Files', description: 'My personal documents and files', created: '2024-01-15' },
@@ -33,7 +44,7 @@ const mockProjects: Project[] = [
 ];
 
 export const ProjectProvider = ({ children }: { children: ReactNode }) => {
-  const [currentProject, setCurrentProject] = useState<Project | null>(null);
+  const [currentProject, setCurrentProject] = useState<Project | null>(defaultProject);
   const [projects, setProjects] = useState<Project[]>(mockProjects);
 
   const addProject = (projectData: Omit<Project, 'id' | 'created'>) => {
@@ -49,6 +60,7 @@ export const ProjectProvider = ({ children }: { children: ReactNode }) => {
     <ProjectContext.Provider value={{
       currentProject,
       projects,
+      defaultProject,
       setCurrentProject,
       addProject,
     }}>

@@ -1,5 +1,5 @@
 
-import { Search, Bell, HelpCircle, Settings, User, ChevronDown } from "lucide-react";
+import { Search, Bell, HelpCircle, Settings, User, ChevronDown, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useProject } from "@/contexts/ProjectContext";
 import {
@@ -7,11 +7,12 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { useNavigate } from "react-router-dom";
 
 export const TopNavigation = () => {
-  const { currentProject, projects, setCurrentProject } = useProject();
+  const { currentProject, projects, defaultProject, setCurrentProject } = useProject();
   const navigate = useNavigate();
 
   const handleProjectChange = (project: any) => {
@@ -35,11 +36,20 @@ export const TopNavigation = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="text-white hover:bg-gray-800 flex items-center gap-2">
+                  {currentProject.isDefault && <Star size={14} className="text-cyan-500 fill-cyan-500" />}
                   <span>{currentProject.name}</span>
                   <ChevronDown size={16} />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-gray-900 border-gray-700 text-white">
+                <DropdownMenuItem
+                  onClick={() => handleProjectChange(defaultProject)}
+                  className="hover:bg-gray-800 cursor-pointer flex items-center gap-2"
+                >
+                  <Star size={14} className="text-cyan-500 fill-cyan-500" />
+                  {defaultProject.name}
+                </DropdownMenuItem>
+                <DropdownMenuSeparator className="bg-gray-700" />
                 {projects.map((project) => (
                   <DropdownMenuItem
                     key={project.id}
@@ -49,9 +59,10 @@ export const TopNavigation = () => {
                     {project.name}
                   </DropdownMenuItem>
                 ))}
+                <DropdownMenuSeparator className="bg-gray-700" />
                 <DropdownMenuItem
                   onClick={handleBackToProjects}
-                  className="hover:bg-gray-800 cursor-pointer border-t border-gray-700 mt-2 pt-2"
+                  className="hover:bg-gray-800 cursor-pointer"
                 >
                   Switch Project
                 </DropdownMenuItem>
