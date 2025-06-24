@@ -42,7 +42,7 @@ export const FileExplorerToolbar = ({
               placeholder="Search in Drive"
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
-              className="bg-gray-900 border border-gray-700 rounded-lg pl-10 pr-4 py-2 text-white placeholder-gray-400 focus:border-cyan-600 focus:outline-none w-80"
+              className="bg-gray-900 border border-gray-700 pl-10 pr-4 py-2 text-white placeholder-gray-400 focus:border-cyan-600 focus:outline-none w-80"
             />
           </div>
 
@@ -104,7 +104,7 @@ export const FileExplorerToolbar = ({
           </Button>
 
           {/* View Toggle */}
-          <div className="flex bg-gray-900 rounded-lg p-1">
+          <div className="flex bg-gray-900 p-1">
             <Button
               variant="ghost"
               size="sm"

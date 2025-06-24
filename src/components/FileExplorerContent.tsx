@@ -76,7 +76,7 @@ export const FileExplorerContent = ({
             return (
               <div
                 key={file.id}
-                className={`group relative p-3 rounded-lg border cursor-pointer transition-all hover:bg-gray-900 ${
+                className={`group relative p-3 border cursor-pointer transition-all hover:bg-gray-900 ${
                   isSelected 
                     ? "bg-cyan-900/50 border-cyan-600" 
                     : "bg-gray-900/50 border-gray-700 hover:border-gray-600"
@@ -121,7 +121,7 @@ export const FileExplorerContent = ({
                 </div>
 
                 {/* More Options */}
-                <button className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-gray-800 rounded">
+                <button className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-gray-800">
                   <MoreVertical size={16} className="text-gray-400" />
                 </button>
               </div>
@@ -156,7 +156,7 @@ export const FileExplorerContent = ({
             return (
               <div
                 key={file.id}
-                className={`group grid grid-cols-12 gap-4 py-3 rounded-lg cursor-pointer transition-all hover:bg-gray-900 ${
+                className={`group grid grid-cols-12 gap-4 py-3 cursor-pointer transition-all hover:bg-gray-900 ${
                   isSelected ? "bg-cyan-900/50" : ""
                 }`}
                 onClick={() => handleItemClick(file)}
@@ -202,7 +202,7 @@ export const FileExplorerContent = ({
 
                 {/* Actions */}
                 <div className="col-span-2 flex items-center justify-end">
-                  <button className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-gray-800 rounded">
+                  <button className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-gray-800">
                     <MoreVertical size={16} className="text-gray-400" />
                   </button>
                 </div>

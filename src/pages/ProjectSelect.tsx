@@ -1,3 +1,4 @@
+
 import { useProject } from "@/contexts/ProjectContext";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
@@ -71,7 +72,7 @@ const ProjectSelect = () => {
           </div>
 
           <div className="text-center">
-            <Button className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-3">
+            <Button className="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-3 rounded-none">
               <Plus size={20} className="mr-2" />
               Create New Project
             </Button>
